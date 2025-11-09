@@ -186,8 +186,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        KelolaProducts panelProduct = new KelolaProducts();
-    AddViews(panelProduct);
+//        KelolaProducts panelProduct = new KelolaProducts();
+//        AddViews(panelProduct);
+        AddViews(new KelolaProducts());
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -199,9 +200,10 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        KelolaUsers panelUser = new KelolaUsers();
-    AddViews(panelUser);
+
+//        KelolaUsers panelUser = new KelolaUsers();
+        System.out.println("Tombol Kelola User diklik!");
+        AddViews(new KelolaUsers());
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
@@ -241,7 +243,15 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel panelContent;
     // End of variables declaration//GEN-END:variables
     
-     private void AddViews(JPanel P){
+//     private void AddViews(JPanel P) {
+//        panelContent.removeAll();
+//        panelContent.setLayout(new BorderLayout());
+//        panelContent.add(P, BorderLayout.CENTER);
+//        panelContent.revalidate();
+//        panelContent.repaint();
+//    }
+     
+    private void AddViews(JPanel P){
         if(panelContent.getComponentCount() > 0){
             panelContent.removeAll();
         }

@@ -4,15 +4,12 @@
  */
 package motorin.panel;
 
-/**
- *
- * @author Lenovo
- */
+import Dialog.AddNewProduct;
+
+
 public class KelolaProducts extends javax.swing.JPanel {
 
-    /**
-     * Creates new form KelolaProducts
-     */
+    
     public KelolaProducts() {
         initComponents();
     }

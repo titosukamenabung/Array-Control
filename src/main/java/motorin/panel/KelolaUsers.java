@@ -20,14 +20,12 @@ public class KelolaUsers extends javax.swing.JPanel {
     
     pegawai Px;
 
-    /**
-     * Creates new form ManageUsers
-     */
+    
     public KelolaUsers() {
-        initComponents();
-        
-        refreshData();
-    }
+    System.out.println("Panel KelolaUsers dibuat");
+    initComponents();
+    refreshData();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -210,6 +208,8 @@ public class KelolaUsers extends javax.swing.JPanel {
             }
             
         } catch (Exception e) {
+            System.out.println("Error saat refreshData(): " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
