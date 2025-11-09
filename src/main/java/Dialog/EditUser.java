@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import motorin.panel.kelolaUser;
+import motorin.panel.KelolaUsers;
 import com.motorin.db.koneksi;
 import com.motorin.db.pegawai;
 
@@ -237,7 +237,7 @@ public class EditUser extends javax.swing.JDialog {
             PS.setInt(5, P.getId());
             PS.executeUpdate();
             
-            kelolaUser.refreshData();
+            KelolaUsers.refreshData();
             this.setVisible(false); 
             
             JOptionPane.showMessageDialog(null, "Data berhasil diubah"); 

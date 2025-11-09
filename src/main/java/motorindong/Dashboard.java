@@ -3,8 +3,8 @@ package motorindong;
 import java.awt.BorderLayout;
 import java.awt.Frame;
 import javax.swing.JPanel;
-import motorin.panel.Kelolaproduct;
-import motorin.panel.kelolaUser;
+import motorin.panel.KelolaProducts;
+import motorin.panel.KelolaUsers;
 import com.motorin.db.pegawai;
 
 /**
@@ -186,7 +186,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        Kelolaproduct panelProduct = new Kelolaproduct();
+        KelolaProducts panelProduct = new KelolaProducts();
     AddViews(panelProduct);
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -200,7 +200,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        kelolaUser panelUser = new kelolaUser();
+        KelolaUsers panelUser = new KelolaUsers();
     AddViews(panelUser);
     }//GEN-LAST:event_jButton5ActionPerformed
 

@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
-import motorin.dialog.AddNewUser;
+import Dialog.AddNewUser;
 import com.motorin.db.koneksi;
 import com.motorin.db.pegawai;
 
@@ -16,14 +16,14 @@ import com.motorin.db.pegawai;
  *
  * @author mnish
  */
-public class kelolaUser extends javax.swing.JPanel {
+public class KelolaUsers extends javax.swing.JPanel {
     
     pegawai Px;
 
     /**
      * Creates new form ManageUsers
      */
-    public kelolaUser() {
+    public KelolaUsers() {
         initComponents();
         
         refreshData();
