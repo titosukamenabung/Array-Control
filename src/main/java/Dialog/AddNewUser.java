@@ -68,9 +68,7 @@ public class AddNewUser extends javax.swing.JDialog {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setText("Nama");
 
@@ -89,7 +87,7 @@ public class AddNewUser extends javax.swing.JDialog {
             }
         });
 
-        btnBatal.setBackground(new java.awt.Color(255, 51, 51));
+        btnBatal.setBackground(new java.awt.Color(102, 51, 0));
         btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("Batal");
 
