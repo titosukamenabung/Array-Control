@@ -176,7 +176,7 @@ public class DeleteUser extends javax.swing.JDialog {
             Statement S = K.createStatement();
             S.executeUpdate(Q);
             
-            KelolaUsers.refreshData();
+            KelolaUsers.refreshData("");
             this.dispose();
             JOptionPane.showMessageDialog(null, "Data berhasil dihapus"); 
             

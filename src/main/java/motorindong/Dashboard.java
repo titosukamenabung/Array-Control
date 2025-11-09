@@ -12,6 +12,7 @@ import com.motorin.db.pegawai;
  * @author Lenovo
  */
 public class Dashboard extends javax.swing.JFrame {
+    
     pegawai p;
     
  
@@ -38,10 +39,10 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel4 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnProduk = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnKelolaUser = new javax.swing.JButton();
         panelContent = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,13 +66,6 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(102, 102, 102));
         jPanel4.setForeground(new java.awt.Color(0, 255, 255));
 
-        jButton5.setText("Kelola User");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         jButton7.setText("Laporan Transaksi");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +73,10 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Kelola Data Product");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnProduk.setText("Kelola Data Product");
+        btnProduk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnProdukActionPerformed(evt);
             }
         });
 
@@ -90,6 +84,13 @@ public class Dashboard extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnKelolaUser.setText("Kelola User");
+        btnKelolaUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKelolaUserActionPerformed(evt);
             }
         });
 
@@ -102,17 +103,17 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnProduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnKelolaUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(btnKelolaUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -184,12 +185,12 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdukActionPerformed
         // TODO add your handling code here:
 //        KelolaProducts panelProduct = new KelolaProducts();
 //        AddViews(panelProduct);
         AddViews(new KelolaProducts());
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnProdukActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -199,12 +200,33 @@ public class Dashboard extends javax.swing.JFrame {
         P.setExtendedState(Frame.MAXIMIZED_BOTH); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-//        KelolaUsers panelUser = new KelolaUsers();
-        System.out.println("Tombol Kelola User diklik!");
-        AddViews(new KelolaUsers());
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnKelolaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKelolaUserActionPerformed
+        try {
+        // 1. Kita coba buat panelnya
+        System.out.println("Mencoba membuat panel KelolaUsers...");
+        KelolaUsers panelUser = new KelolaUsers(); // <--- Jika error, akan lompat ke 'catch'
+        
+        // 2. Jika berhasil dibuat, kita tampilkan
+        System.out.println("Panel berhasil dibuat. Menampilkan...");
+        AddViews(panelUser);
+        System.out.println("Panel berhasil ditampilkan.");
+        
+    } catch (Exception e) {
+        // 3. JIKA GAGAL MEMBUAT PANEL (misal error di refreshData),
+        //    KITA AKAN TANGKAP ERROR-NYA DI SINI
+        
+        System.out.println("TERJADI ERROR SAAT MEMBUAT PANEL KELOLA USERS!");
+        
+        // Tampilkan pesan errornya di pop-up
+        javax.swing.JOptionPane.showMessageDialog(this, 
+                "Gagal membuka Kelola User!\n\nError: " + e.getMessage(), 
+                "Error", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        
+        // Tampilkan error lengkapnya di console (PENTING!)
+        e.printStackTrace();
+    }
+    }//GEN-LAST:event_btnKelolaUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,10 +254,10 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnKelolaUser;
+    private javax.swing.JButton btnProduk;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

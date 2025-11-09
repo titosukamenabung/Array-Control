@@ -90,6 +90,11 @@ public class AddNewUser extends javax.swing.JDialog {
         btnBatal.setBackground(new java.awt.Color(102, 51, 0));
         btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("Batal");
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -186,6 +191,11 @@ public class AddNewUser extends javax.swing.JDialog {
         simpanData();
     }//GEN-LAST:event_btnSimpanActionPerformed
 
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnBatalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -248,7 +258,7 @@ public class AddNewUser extends javax.swing.JDialog {
             
             Connection K = koneksi.Go();
             String sql = "INSERT INTO pegawai "
-                    + "(nama_pegawai,jabatan,username,password_hash) "
+                    + "(nama,jabatan,username,password) "
                     + "VALUES "
                     + "(?,?,?,?)";
             PreparedStatement PS = K.prepareStatement(sql);
@@ -258,7 +268,7 @@ public class AddNewUser extends javax.swing.JDialog {
             PS.setString(4, password);
             PS.executeUpdate();
             
-            KelolaUsers.refreshData();
+            KelolaUsers.refreshData("");
             this.setVisible(false); 
             
             JOptionPane.showMessageDialog(null, "Data berhasil disimpan");

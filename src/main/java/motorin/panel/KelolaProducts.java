@@ -5,10 +5,17 @@
 package motorin.panel;
 
 import Dialog.AddNewProduct;
+import com.motorin.db.Products;
+import com.motorin.db.koneksi;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
 
 
 public class KelolaProducts extends javax.swing.JPanel {
 
+    Products pm;
     
     public KelolaProducts() {
         initComponents();
@@ -26,8 +33,8 @@ public class KelolaProducts extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -44,9 +51,9 @@ public class KelolaProducts extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Edit");
+        btnEdit.setText("Edit");
 
-        jButton3.setText("Hapus");
+        btnHapus.setText("Hapus");
 
         jButton4.setText("Refresh");
 
@@ -58,9 +65,9 @@ public class KelolaProducts extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -77,8 +84,8 @@ public class KelolaProducts extends javax.swing.JPanel {
                             .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -88,15 +95,20 @@ public class KelolaProducts extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id_barang", "nama_barang", "kategori", "stok", "harga_beli", "harga_jual", "satuan", "tanggal_masuk"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -109,16 +121,75 @@ public class KelolaProducts extends javax.swing.JPanel {
         Pd.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int n = jTable1.getSelectedRow();
+        if (n != -1) {
+            btnEdit.setEnabled(true);
+            btnHapus.setEnabled(true);
+            //ekstraksi data
+            pm = new Products();
+            String IDmtr = jTable1.getValueAt(n, 0).toString();
+            int ID = Integer.valueOf(IDmtr);
+            String nama_barang = jTable1.getValueAt(n, 1).toString();
+            String kategori = jTable1.getValueAt(n, 2).toString();
+            String stok = jTable1.getValueAt(n, 3).toString();
+            String harga_jual = jTable1.getValueAt(n, 4).toString();
+            String harga_beli = jTable1.getValueAt(n, 5).toString();
+            String satuan = jTable1.getValueAt(n, 6).toString();
+            String tanggal_masuk = jTable1.getValueAt(n, 7).toString();
+            pm.setId_barang(ID);
+            pm.setNama_barang(nama_barang);
+            pm.setKategori(kategori);
+            pm.setStok(stok);
+            pm.setHarga_jual(harga_jual);
+            pm.setHarga_beli(harga_beli);
+            pm.setSatuan(satuan);
+            pm.setTanggal_masuk(tanggal_masuk);
+
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnHapus;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+public static void refreshDataProducts(String w) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                model.removeRow(i);
+            }
+
+            Connection K = koneksi.Go();
+            String Q = "SELECT * FROM barang" + w;
+            Statement S = K.createStatement();
+            ResultSet R = S.executeQuery(Q);
+            while (R.next()) {
+                int id = R.getInt("id_barang");
+                String nama_barang = R.getString("nama_barang");
+                String kategori = R.getString("kategori");
+                String stok = R.getString("stok");
+                String harga_beli = R.getString("harga_beli");
+                String harga_jual = R.getString("harga_jual");
+                String satuan = R.getString("satuan");
+                String tanggal_masuk = R.getString("tanggal_masuk");
+                Object[] dataproducts = {id, nama_barang, kategori, stok, harga_beli, harga_jual, satuan, tanggal_masuk};
+                model.addRow(dataproducts);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            
+        }
+    }
+
 }

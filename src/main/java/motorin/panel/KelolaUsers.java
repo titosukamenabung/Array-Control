@@ -22,9 +22,9 @@ public class KelolaUsers extends javax.swing.JPanel {
 
     
     public KelolaUsers() {
-    System.out.println("Panel KelolaUsers dibuat");
+//    System.out.println("Panel KelolaUsers dibuat");
     initComponents();
-    refreshData();
+    refreshData("");    
 }
 
     /**
@@ -39,7 +39,7 @@ public class KelolaUsers extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        srcUser = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -52,12 +52,15 @@ public class KelolaUsers extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(798, 70));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/32px/search-icon-32.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 40, 39));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 274, 39));
+        srcUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        srcUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                srcUserActionPerformed(evt);
+            }
+        });
+        jPanel2.add(srcUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 274, 39));
 
         jButton1.setText("Tambah");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +128,6 @@ public class KelolaUsers extends javax.swing.JPanel {
             }
         ));
         jTable1.setRowHeight(30);
-        jTable1.setRowHeight(30);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -159,8 +161,6 @@ public class KelolaUsers extends javax.swing.JPanel {
             Px.setJabatan(jabatan);
             Px.setUsername(username);
             Px.setPassword(password);
-            
-            
         }
         
         
@@ -171,6 +171,10 @@ public class KelolaUsers extends javax.swing.JPanel {
         jButton3.setEnabled(false);
         jTable1.clearSelection();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void srcUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_srcUserActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -183,34 +187,45 @@ public class KelolaUsers extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField srcUser;
     // End of variables declaration//GEN-END:variables
 
-    public static void refreshData(){
+    public static void refreshData(String W) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            for (int i = model.getRowCount()-1; i >=0; i--) {
-                model.removeRow(i); 
+            for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                model.removeRow(i);
             }
-            
+
             Connection K = koneksi.Go();
-            String Q = "SELECT * FROM pegawai";
+            String Q = "SELECT * FROM pegawai" + W;
             Statement S = K.createStatement();
             ResultSet R = S.executeQuery(Q);
-            while (R.next()){                
+            while (R.next()) {
                 int id = R.getInt("id_pegawai");
-                String nama = R.getString("nama_pegawai");
+                String nama = R.getString("nama");
                 String jabatan = R.getString("jabatan");
                 String username = R.getString("username");
-                String password = R.getString("password_hash");
-                Object[] datausers = {id,nama,jabatan,username,password};
-                model.addRow(datausers); 
+                String password = R.getString("password");
+                Object[] datausers = {id, nama, jabatan, username, password};
+                model.addRow(datausers);
             }
-            
+
         } catch (Exception e) {
-            System.out.println("Error saat refreshData(): " + e.getMessage());
-            e.printStackTrace();
         }
+    }
+
+    private void searchDataUser() {
+        String key = srcUser.getText();
+        String where = " WHERE "
+                + "id_pegawai LIKE '%" + key + "%' OR "
+                + "nama LIKE '%" + key + "%' OR "
+                + "jabatan LIKE '%" + key + "%' OR "
+                + "username LIKE '%" + key + "%' OR "
+                + "password LIKE '%" + key + "%'";
+        
+        System.out.println("String WHERE yang dibuat: " + where);
+        refreshData(where);
     }
 
 }

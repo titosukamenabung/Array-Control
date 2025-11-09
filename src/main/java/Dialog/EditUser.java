@@ -193,7 +193,7 @@ public class EditUser extends javax.swing.JDialog {
             PS.setInt(5, P.getId());
             PS.executeUpdate();
             
-            KelolaUsers.refreshData();
+            KelolaUsers.refreshData("");
             this.setVisible(false); 
             
             JOptionPane.showMessageDialog(null, "Data berhasil diubah"); 
