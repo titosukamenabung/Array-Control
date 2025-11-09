@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import Dialog.AddNewUser;
+import Dialog.DeleteUser;
+import Dialog.EditUser;
 import com.motorin.db.koneksi;
 import com.motorin.db.pegawai;
 
@@ -71,9 +73,19 @@ public class KelolaUsers extends javax.swing.JPanel {
 
         jButton2.setText("Edit");
         jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Hapus");
         jButton3.setEnabled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Refresh");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +160,7 @@ public class KelolaUsers extends javax.swing.JPanel {
         if(n != -1){
             jButton2.setEnabled(true);
             jButton3.setEnabled(true);
-            //ekstraksi data
+        
             Px = new pegawai();
             String IDusr = jTable1.getValueAt(n, 0).toString();
             int ID = Integer.valueOf(IDusr);
@@ -156,6 +168,7 @@ public class KelolaUsers extends javax.swing.JPanel {
             String jabatan = jTable1.getValueAt(n, 2).toString();
             String username = jTable1.getValueAt(n, 3).toString();
             String password = jTable1.getValueAt(n, 4).toString();
+            
             Px.setId(ID);
             Px.setNama(nama); 
             Px.setJabatan(jabatan);
@@ -175,6 +188,16 @@ public class KelolaUsers extends javax.swing.JPanel {
     private void srcUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_srcUserActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        EditUser EU = new EditUser(null, true);
+        EU.setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DeleteUser DU = new DeleteUser(null, true);
+        DU.setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

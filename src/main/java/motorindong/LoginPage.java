@@ -206,7 +206,7 @@ public class LoginPage extends javax.swing.JFrame {
                 if (Pg.getJabatan().equals("admin")) {
                     this.setVisible(false);
                     Dashboard D = new Dashboard();
-                    D.p = Pg;
+                    D.P = Pg;
                     D.setVisible(true);
                     D.setExtendedState(Frame.MAXIMIZED_BOTH);
                 }else if(Pg.getJabatan().equals("KASIR")){

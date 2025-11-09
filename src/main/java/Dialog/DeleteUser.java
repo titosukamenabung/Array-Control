@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import motorin.panel.KelolaUsers;
 import com.motorin.db.koneksi;
 import com.motorin.db.pegawai;
+import java.sql.PreparedStatement;
 
 
 /**
@@ -17,7 +18,7 @@ import com.motorin.db.pegawai;
  * @author Lenovo
  */
 public class DeleteUser extends javax.swing.JDialog {
-    public pegawai p;
+    public pegawai P;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DeleteUser.class.getName());
 
@@ -45,6 +46,11 @@ public class DeleteUser extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -115,14 +121,15 @@ public class DeleteUser extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         jLabel1.setText(""
                 + "<html>"
-                + "<p>"
-                + "Apakah Anda yakin ingin mengahapus data ["+p.getNama()+"]?"
-                + "</p>"
-                + "</html>");
-    } 
+                + "<p>Apakah Anda yakin ingin menghapus data "
+                + " "+P.getNama()+"?</p>"
+                + "</html>"
+                + "");
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -169,19 +176,25 @@ public class DeleteUser extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void hapusDataUser() {
-        try {
+         try {
             Connection K = koneksi.Go();
-            String Q = "DELETE FROM pegawai "
-                    + "WHERE id_pegawai="+p.getId()+"";
-            Statement S = K.createStatement();
-            S.executeUpdate(Q);
+            String sql = "DELETE FROM pegawai WHERE "
+                    + "id_pegawai=?";
+            PreparedStatement PS = K.prepareStatement(sql);
+            PS.setInt(1, P.getId());
+            PS.executeUpdate();
             
+            //refresh data
             KelolaUsers.refreshData("");
-            this.dispose();
-            JOptionPane.showMessageDialog(null, "Data berhasil dihapus"); 
+            this.setVisible(false); 
             
+            JOptionPane.showMessageDialog(null, "Berhasil menghapus data"); 
             
         } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, 
+                "Gagal membuka Kelola User!\n\nError: " + e.getMessage(), 
+                "Error", 
+                javax.swing.JOptionPane.ERROR_MESSAGE);
             //error handling
         }
     }

@@ -96,6 +96,11 @@ public class EditUser extends javax.swing.JDialog {
         btnBatal.setBackground(new java.awt.Color(0, 0, 0));
         btnBatal.setForeground(new java.awt.Color(255, 255, 255));
         btnBatal.setText("Batal");
+        btnBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/backgroun_dashboard.jpg"))); // NOI18N
@@ -109,6 +114,10 @@ public class EditUser extends javax.swing.JDialog {
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         ubahDataUser();
     }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBatalActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {                                  
         txtNama.setText(P.getNama());

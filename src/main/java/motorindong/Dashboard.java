@@ -13,7 +13,7 @@ import com.motorin.db.pegawai;
  */
 public class Dashboard extends javax.swing.JFrame {
     
-    pegawai p;
+    pegawai P;
     
  
     
