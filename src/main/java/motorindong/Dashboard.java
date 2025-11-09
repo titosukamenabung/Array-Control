@@ -4,7 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Frame;
 import javax.swing.JPanel;
 import motorin.panel.Kelolaproduct;
-import motorin.panel.KelolaUser;
+import motorin.panel.kelolaUser;
 import com.motorin.db.pegawai;
 
 /**
@@ -66,6 +66,11 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4.setForeground(new java.awt.Color(0, 255, 255));
 
         jButton5.setText("Kelola User");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Laporan Transaksi");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -181,6 +186,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        Kelolaproduct panelProduct = new Kelolaproduct();
+    AddViews(panelProduct);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -190,6 +197,12 @@ public class Dashboard extends javax.swing.JFrame {
         P.setVisible(true); 
         P.setExtendedState(Frame.MAXIMIZED_BOTH); 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        kelolaUser panelUser = new kelolaUser();
+    AddViews(panelUser);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.SwingWorker;
 import com.motorin.db.koneksi;
+import java.util.logging.Logger;
 
 
 /**
@@ -31,6 +32,9 @@ public class AddNewProduct extends javax.swing.JDialog {
         
         showProductCategory();
     }
+    
+    private static final java.util.logging.Logger logger =
+    java.util.logging.Logger.getLogger(AddNewProduct.class.getName());
 
     /**
      * This method is called from within the constructor to initialize the form.

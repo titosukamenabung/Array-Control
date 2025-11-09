@@ -7,7 +7,7 @@ package Dialog;
 import java.sql.Connection;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import motorin.panel.KelolaUser;
+import motorin.panel.kelolaUser;
 import com.motorin.db.koneksi;
 import com.motorin.db.pegawai;
 
@@ -176,7 +176,7 @@ public class DeleteUser extends javax.swing.JDialog {
             Statement S = K.createStatement();
             S.executeUpdate(Q);
             
-            KelolaUser.refreshData("");
+            kelolaUser.refreshData();
             this.dispose();
             JOptionPane.showMessageDialog(null, "Data berhasil dihapus"); 
             

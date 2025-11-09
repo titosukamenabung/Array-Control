@@ -7,7 +7,7 @@ package Dialog;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
-import motorin.panel.;
+import motorin.panel.kelolaUser;
 import com.motorin.db.koneksi;
 
 /**
@@ -255,7 +255,7 @@ public class AddNewUser extends javax.swing.JDialog {
             PS.setString(4, password);
             PS.executeUpdate();
             
-            KelolaUser.refreshData();
+            kelolaUser.refreshData();
             this.setVisible(false); 
             
             JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
