@@ -98,9 +98,8 @@ public class EditUser extends javax.swing.JDialog {
         btnBatal.setText("Batal");
         jPanel1.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/backgroun_dashboard.jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1970, 1150));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/backgroun_dashboard.jpg"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -80, 1660, 1150));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
