@@ -126,13 +126,13 @@ public class AddNewProduct extends javax.swing.JDialog {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("GAMBAR");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 251, 29));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, 251, 29));
 
-        jLabel10.setBackground(new java.awt.Color(153, 255, 255));
+        jLabel10.setBackground(new java.awt.Color(153, 153, 153));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel10.setOpaque(true);
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 30, 242, 309));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 40, 242, 309));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,13 +146,13 @@ public class AddNewProduct extends javax.swing.JDialog {
 
         txtKode.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jPanel2.add(txtKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 180, 29));
-        jPanel2.add(txtNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 787, 29));
-        jPanel2.add(txtHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 787, 29));
-        jPanel2.add(txtHargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 787, 29));
-        jPanel2.add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 787, 29));
+        jPanel2.add(txtNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 740, 29));
+        jPanel2.add(txtHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 740, 29));
+        jPanel2.add(txtHargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 740, 29));
+        jPanel2.add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 740, 29));
 
         cmbSatuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pcs (pieces) / Buah", "Lusin", "Kodi", "Gross", "Set/Unit", "Paket", "Box / Kotak", "Bungkus", "Botol", "Kaleng" }));
-        jPanel2.add(cmbSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 787, 29));
+        jPanel2.add(cmbSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 740, 29));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 1210, 1343, 10));
 
         jButton1.setBackground(new java.awt.Color(102, 102, 102));
@@ -165,7 +165,7 @@ public class AddNewProduct extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 390, 113, 38));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 390, 113, 38));
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -177,11 +177,16 @@ public class AddNewProduct extends javax.swing.JDialog {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 390, 108, 38));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 390, 108, 38));
 
         jButton3.setText("Ubah/Pilih Gambar");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 360, 242, -1));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 360, 242, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -192,13 +197,13 @@ public class AddNewProduct extends javax.swing.JDialog {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 601, 30));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 550, 30));
 
         cmbKategori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "mantap", "joss" }));
-        jPanel2.add(cmbKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 1445, -1));
+        jPanel2.add(cmbKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 1030, -1));
 
         txtTanggal.setText("jTextField1");
-        jPanel2.add(txtTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 490, 1445, 32));
+        jPanel2.add(txtTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 1030, 32));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/backgroun_dashboard.jpg"))); // NOI18N
         jLabel13.setText("jLabel13");
@@ -260,6 +265,10 @@ public class AddNewProduct extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
